@@ -12,18 +12,24 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("user")
 public class ArticleController {
 
     @Autowired
     private ArticleService articleService;
+
+    @RequestMapping("ping")
+    public String checkServer(){
+        return "Server up and running";
+    }
+
     @GetMapping("article/{id}")
     public ResponseEntity<Article> getArticleById(@PathVariable("id") Integer id) {
         Article article = articleService.getArticleById(id);
         return new ResponseEntity<Article>(article, HttpStatus.OK);
     }
-    @GetMapping("articles")
+    @GetMapping("/articles")
     public ResponseEntity<List<Article>> getAllArticles() {
         List<Article> list = articleService.getAllArticles();
         return new ResponseEntity<List<Article>>(list, HttpStatus.OK);
