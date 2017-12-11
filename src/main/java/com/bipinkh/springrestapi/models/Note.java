@@ -34,12 +34,11 @@ public class Note implements Serializable {
     @CreatedDate
     private Date createdAt;
 
-//    @Column(nullable = false)
-//    @Temporal(TemporalType.TIMESTAMP)
-//    @LastModifiedDate
-//    private Date updatedAt;
+    @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    @LastModifiedDate
+    private Date updatedAt;
 
-    // Getters and Setters ... (Omitted for brevity)
 
     public Long getId() {
         return id;
